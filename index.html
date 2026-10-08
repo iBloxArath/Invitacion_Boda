@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Boda Civil - Esmeralda & Jorge</title>
+    <!-- Fuentes de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #d8e5e0;
+            font-family: 'Montserrat', sans-serif;
+            color: #4a4a4a;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px 10px;
+        }
+
+        .invitation-card {
+            width: 100%;
+            max-width: 480px;
+            background: #e2ede8;
+            background-image: radial-gradient(circle, #f0f7f4 0%, #d5e5df 100%);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+            padding: 40px 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.6);
+        }
+
+        .header-text {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #555;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .names {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 56px;
+            color: #b38b3f;
+            line-height: 1.1;
+            font-weight: 400;
+            margin-bottom: 5px;
+        }
+
+        .ampersand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 42px;
+            color: #b38b3f;
+            font-style: italic;
+            margin: -5px 0;
+        }
+
+        .phrase {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 21px;
+            color: #444;
+            margin: 25px 0 35px 0;
+        }
+
+        .details-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0 30px 0;
+            padding: 0 5px;
+        }
+
+        .date-box {
+            text-align: left;
+            flex: 1;
+        }
+
+        .date-box .day-name {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .date-box .day-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 58px;
+            color: #2c2c2c;
+            line-height: 1;
+            font-weight: 600;
+        }
+
+        .date-box .month {
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #2c2c2c;
+        }
+
+        .divider {
+            width: 1px;
+            height: 75px;
+            background-color: #b5c7c0;
+            margin: 0 12px;
+        }
+
+        .location-box {
+            text-align: left;
+            flex: 1.6;
+        }
+
+        .location-box .venue {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            color: #2c2c2c;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .location-box .address {
+            font-size: 11.5px;
+            line-height: 1.4;
+            color: #555;
+        }
+
+        .time-box {
+            text-align: right;
+            flex: 1;
+        }
+
+        .time-box .time {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 40px;
+            color: #2c2c2c;
+            font-weight: 600;
+            line-height: 1;
+        }
+
+        .time-box .am-pm {
+            font-size: 13px;
+            letter-spacing: 1px;
+            font-weight: 600;
+            color: #555;
+            margin-top: 2px;
+        }
+
+        .dress-code {
+            margin: 35px 0;
+        }
+
+        .dress-code p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            color: #b38b3f;
+            font-style: italic;
+        }
+
+        .dress-code span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 600;
+            color: #2c2c2c;
+        }
+
+        /* Botones inferiores */
+        .actions-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            background: #fbfdfc;
+            border: 1px solid #d0ded8;
+            border-radius: 8px;
+            padding: 10px 8px;
+            text-decoration: none;
+            color: #333;
+            font-size: 11px;
+            font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            flex: 1;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            cursor: pointer;
+        }
+
+        .btn i {
+            font-size: 15px;
+            color: #4a6b5d;
+        }
+
+        .btn.whatsapp i {
+            color: #25d366;
+        }
+
+        .btn:hover {
+            background: #f0f5f2;
+            border-color: #b38b3f;
+        }
+
+        /* Botón de música justo debajo de la tarjeta */
+        .music-control-container {
+            margin-top: 15px;
+            width: 100%;
+            max-width: 480px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .music-btn {
+            background: #ffffff;
+            border: 1px solid #b38b3f;
+            border-radius: 30px;
+            padding: 10px 22px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .music-btn:hover {
+            background: #fcf9f2;
+        }
+
+        .music-btn i {
+            color: #b38b3f;
+            font-size: 16px;
+        }
+
+        .music-btn span {
+            font-size: 12px;
+            font-weight: 600;
+            color: #444;
+            letter-spacing: 0.5px;
+        }
+
+        /* Ventana emergente (Modal) para Regalos */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            max-width: 320px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-content h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 26px;
+            color: #b38b3f;
+            margin-bottom: 10px;
+        }
+
+        .modal-content p {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .close-btn {
+            background: #4a6b5d;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        /* Ajustes para celulares pequeños */
+        @media (max-width: 400px) {
+            .names { font-size: 46px; }
+            .date-box .day-number { font-size: 48px; }
+            .location-box .venue { font-size: 20px; }
+            .time-box .time { font-size: 32px; }
+            .btn { font-size: 10px; padding: 8px 4px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Tarjeta de Invitación Principal -->
+    <div class="invitation-card">
+        <div class="header-text">Tenemos el honor de invitarles a nuestra boda civil</div>
+
+        <div class="names">Esmeralda</div>
+        <div class="ampersand">&</div>
+        <div class="names" style="margin-top:-5px;">Jorge</div>
+
+        <div class="phrase">"Tus ojos son los culpables de este amor."</div>
+
+        <div class="details-container">
+            <div class="date-box">
+                <div class="day-name">Sábado</div>
+                <div class="day-number">13</div>
+                <div class="month">Marzo</div>
+            </div>
+            
+            <div class="divider"></div>
+
+            <div class="location-box">
+                <div class="venue">El Bienestar,</div>
+                <div class="address">Monte Edna 3, Lomas de Comanjilla.<br>37683 León de los Aldama, Gto.</div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="time-box">
+                <div class="time">5:30</div>
+                <div class="am-pm">PM</div>
+            </div>
+        </div>
+
+        <div class="dress-code">
+            <p>Código de etiqueta: <span>Formal</span></p>
+        </div>
+
+        <!-- Botones de Acción -->
+        <div class="actions-container">
+            <!-- Botón Cómo Llegar -->
+            <a href="https://www.google.com/maps/place/El+Bienestar/@21.0409425,-101.5410439,17z/data=!3m1!4b1!4m6!3m5!1s0x842b979afd1633d1:0x9f6ab47fbfce4775!8m2!3d21.0409375!4d-101.538469!16s%2Fg%2F1thq5m87?entry=ttu&g_ep=EgoyMDI2MTAwNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn">
+                <i class="fa-solid fa-location-dot"></i>
+                CÓMO LLEGAR
+            </a>
+
+            <!-- Botón WhatsApp (Confirmar Asistencia) -->
+            <a href="#" id="whatsapp-btn" class="btn whatsapp">
+                <i class="fa-brands fa-whatsapp"></i>
+                CONFIRMAR ASISTENCIA
+            </a>
+
+            <!-- Botón Sugerencia de Obsequio -->
+            <button class="btn" onclick="openModal()">
+                <i class="fa-solid fa-envelope-open-text"></i>
+                SUGERENCIA DE OBSEQUIO
+            </button>
+        </div>
+    </div>
+
+    <!-- Botón de Música ubicado justo abajito de la tarjeta de invitación -->
+    <div class="music-control-container">
+        <div class="music-btn" id="musicToggle" onclick="toggleMusic()">
+            <i class="fa-solid fa-music" id="musicIcon"></i>
+            <span id="musicText">Reproducir Música</span>
+        </div>
+    </div>
+
+    <!-- Elemento de audio oculto -->
+    <audio id="bgMusic" loop>
+        <source src="Musica Invitacion EG Boda.mp4" type="audio/mp3">
+        Tu navegador no soporta audio.
+    </audio>
+
+    <!-- Modal de Regalos -->
+    <div class="modal" id="giftModal">
+        <div class="modal-content">
+            <h3>Sugerencia de Obsequio</h3>
+            <p>Su presencia es nuestro mejor regalo, pero si desean tener un detalle con nosotros, valoraremos mucho su contribución para nuestra luna de miel o lluvia de sobres.</p>
+            <button class="close-btn" onclick="closeModal()">Cerrar</button>
+        </div>
+    </div>
+
+    <script>
+        // Configuración automática de WhatsApp con mensaje prellenado
+        document.getElementById('whatsapp-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const phoneNumber = "+524772852628"; // Reemplaza con tu número celular real
+            const message = "¡Hola! Confirmo mi asistencia a la Boda Civil de Esmeralda & Jorge. ¡Allí estaré!";
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+        });
+
+        // Funciones para la ventana emergente de regalos
+        function openModal() {
+            document.getElementById('giftModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('giftModal').style.display = 'none';
+        }
+
+        // Control de Reproductor de Música (Reproducir / Pausar)
+        const music = document.getElementById('bgMusic');
+        const musicIcon = document.getElementById('musicIcon');
+        const musicText = document.getElementById('musicText');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                musicIcon.className = "fa-solid fa-music";
+                musicText.innerText = "Reproducir Música";
+                isPlaying = false;
+            } else {
+                music.play().then(() => {
+                    musicIcon.className = "fa-solid fa-volume-high";
+                    musicText.innerText = "Pausar Música";
+                    isPlaying = true;
+                }).catch(e => {
+                    console.log("Error al reproducir audio:", e);
+                });
+            }
+        }
+    </script>
+</body>
+</html>
